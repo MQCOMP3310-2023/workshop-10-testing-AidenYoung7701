@@ -36,7 +36,10 @@ class TestWebApp(unittest.TestCase):
 
     def test_no_access_to_profile(self):
         # TODO: Check that non-logged-in user should be redirected to /login
-        assert False
+        # assert false     this was the first question now the pytest only failes 3 times instead of 4. 
+        response = self.client.get('/profile', follow_redirects= True);
+        assert response.status_code == 200
+        assert response.request.path == '/login'
 
     def test_register_user(self):
         response = self.client.post('/signup', data = {

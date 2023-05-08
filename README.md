@@ -16,18 +16,7 @@ You should first initialise the database as follows:
 
 This should create an sqlite database under the instance directory. You can view the contents of the database using the sqlite command line interface as follows:
 
-sqlite3 instance/db.sqlite
-> .schema  
-CREATE TABLE user (
-	id INTEGER NOT NULL, 
-	email VARCHAR(100), 
-	password VARCHAR(100), 
-	name VARCHAR(1000), 
-	PRIMARY KEY (id), 
-	UNIQUE (email)
-);
-> select * from user;
->
+
 
 You should see that there are no users in the database. 
 
@@ -39,7 +28,7 @@ You can run the website by typing:
 
 (If you are using a Mac you may need to type python3 run.py).
 
-You can now browse to the url http://localhost:8001/ and you should see the home page for the website.
+You can now browse to the url  and you should see the home page for the website.
 
 ![Welcome page](WelcomePage.jpg)
 

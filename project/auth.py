@@ -46,8 +46,17 @@ def signup_post():
         current_app.logger.debug("User email already exists")
         return redirect(url_for('auth.signup'))
 
+
+#user =db.session execute (text('select * from user where email = " "+ email  + '')).all
+user=user.query.filter_by(email=email).all()
+if len(user) > 0: # if a user is found , we want to redirect back to signup page so user # 'flash' function stores a message accessable in the template code. 
+    flash('Email address already exists')
+
     # create a new user with the form data. TODO: Hash the password so the plaintext version isn't saved.
     new_user = User(email=email, name=name, password=password)
+
+
+
 
     # add the new user to the database
     db.session.add(new_user)
