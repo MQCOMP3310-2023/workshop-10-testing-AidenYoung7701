@@ -84,6 +84,13 @@ class TestWebApp(unittest.TestCase):
 
     def test_xss_vulnerability(self):
         # TODO: Can we store javascript tags in the username field?
-        assert False
+       # assert False
+#create a user and perform the javascript injection
+response = self.client.post('/signup'), data={
 
+'email': 'user@test.com',
+'name': <script> alert ("hello");</script>',
+'password': 'test123'
+
+}
 
